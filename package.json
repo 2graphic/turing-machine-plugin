@@ -26,6 +26,7 @@
   "sinap": {
     "kind": ["Formal Languages", "Turing Machine"],
     "plugin-file": "plugin.ts",
-    "description": "This plugin provides a full Turing Machine represented as a graph including full non-determinism support."
+    "description": "This plugin provides a full Turing Machine represented as a graph including full non-determinism support.",
+    "loader": "typescript"
   }
 }

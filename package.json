@@ -4,7 +4,7 @@
   "description": "An interpreter for Turing Machines for the Sinap graph based IDE.",
   "main": "turning.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tsc -t es6 test.ts --moduleResolution node --module commonjs --sourceMap && node test.js"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,16 @@
   },
   "homepage": "https://github.com/2graphic/sinap-core#readme",
   "sinap": {
-    "kind": ["Formal Languages", "Turing Machine"],
+    "kind": [
+      "Formal Languages",
+      "Turing Machine"
+    ],
     "plugin-file": "plugin.ts",
     "description": "This plugin provides a full Turing Machine represented as a graph including full non-determinism support.",
     "loader": "typescript"
+  },
+  "devDependencies": {
+    "@types/chai": "3.5.0",
+    "sinap-typescript": "sinap-typescript"
   }
 }

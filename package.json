@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@types/chai": "3.5.0",
+    "chai": "3.5.0",
     "sinap-typescript": "0.4.10"
   }
 }

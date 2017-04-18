@@ -11,6 +11,10 @@ export class Edges {
     write: string;
     move: "Right" | "Left";
     destination: Nodes;
+
+    private get label() {
+        return `${this.read};${this.write};${this.move[0]}`;
+    }
 }
 
 export class Graph {

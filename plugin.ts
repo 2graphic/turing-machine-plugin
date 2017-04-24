@@ -71,11 +71,11 @@ export class Tape {
 }
 
 export class State {
-    active: Nodes;
+    active: Nodes[];
     message: string;
 
     constructor(public states: [Tape, Nodes][]) {
-        this.active = states[0][1];
+        this.active = states.map(([_, n]) => n);
         this.message = states[0][0].toString();
     }
 }

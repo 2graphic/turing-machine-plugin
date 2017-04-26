@@ -1,3 +1,5 @@
+function hidden(...args: any[]) { };
+
 export class Nodes {
     /** Start State */
     isStartState: boolean;
@@ -24,10 +26,6 @@ export class Nodes {
             y: 0
         };
     }
-
-    private get shape(): string {
-        return "circle";
-    }
 }
 
 export class Edges {
@@ -49,8 +47,11 @@ export class Graph {
 
 
 export class Tape {
-    data: string[];
-    head: number;
+    @hidden data: string[];
+    @hidden head: number;
+
+
+
     constructor(src: Iterable<string>, private blank: string) {
         this.data = [...src];
         this.head = 0;
@@ -95,12 +96,13 @@ export class Tape {
 }
 
 export class State {
-    active: Nodes[];
-    message: string;
+    private active: Nodes[];
 
-    constructor(public states: [Tape, Nodes][]) {
+    tapes: [Nodes, string][];
+
+    constructor( @hidden public states: [Tape, Nodes][]) {
         this.active = states.map(([_, n]) => n);
-        this.message = states[0][0].toString();
+        this.tapes = states.map(([t, n]) => [n, t.toString()] as [Nodes, string]);
     }
 }
 
